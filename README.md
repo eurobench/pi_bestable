@@ -1,5 +1,7 @@
 # BeStable project
 
+Benchmarking System for Assessment of Balance Performance (BeStaBle) is a funded project of the Eurobench cover project.
+
 Copyright BeStable 2020
 
 This is an example of Performance Indicator implemented in Octave.
@@ -27,7 +29,7 @@ chmod 755 run_pi
 Assuming folder `./test_data/input/` contains the input data, and that `./test_data/output` exists and will contain the resulting files, the shell command is:
 
 ```console
-./run_pi ./test_data/input/subject_10_trial_01.csv ./test_data/input/subject_10_anthropometry.yaml ./test_data/output
+./run_pi ./test_data/input/subject_2_cond_2_run_1_platformData.csv ./test_data/input/subject_2_cond_2_testbed.yaml ./test_data/output
 ```
 
 
