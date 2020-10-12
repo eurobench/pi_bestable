@@ -172,7 +172,8 @@ L = legend([E_leftLeg,E_rightLeg],...
     ['subject mean with STD (pert. onset at right heel strike)']});
 set(L,'Position',[0.09 0.13 0.14 0.04])
 
-# debug print to pdf!!!!!!!!!!!!
-#print test_figure.pdf
+set (gcf, "papersize", [13, 8.5])
+set (gcf, "paperposition", [0, 0, 13, 8.5])
+print -dpdf test_plot.pdf
 
 endfunction
