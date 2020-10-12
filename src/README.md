@@ -35,20 +35,19 @@ The file `subject_2_cond_2_run_1_gaitEvents.txt` is currently not used as an inp
 
 The main function `computePI.m` uses six functions to obtain measured data from the BeStable testbed:
 
-- `importData.m`: Imports data from subject_X_cond_Y_run_Z_platformData.csv file.
+- `importData.m`: Imports data from `subject_X_cond_Y_run_Z_platformData.csv` file.
 
-- `importTestbedData.m`: Imports data from subject_X_cond_Y_run_Z_testbed.yaml
+- `importTestbedData.m`: Imports data from `subject_X_cond_Y_run_Z_testbed.yaml`
 
 - `sortData.m`: Sort data containing PI of consecutive steps to:
     1. **base**: unperturbed walking before enabling perturbations
     2. **free**: unperturbed walking after enabling perturbations
     3. **pert**: perturbed walking as a stepping response to applied perturbations
 
-
 - `saveVector.m`:
-Save vector data into *.yaml* file
+Save vector data into *yaml* file
 
-- `sortData.m`: Save labelled matrix data into yaml file where each column represent PI score of the consecutive step after perturbation onset for all perturbation repetitions. It has the following structure:
+- `saveLabelledMatrix.m`: Save labelled matrix data into *yaml* file where each column represent PI score of the consecutive step after perturbation onset for all perturbation repetitions. It has the following structure:
 
     |  | step 1 | step 2 | step 3 | step 4 |
     | -- | -- | -- | -- | -- |
@@ -57,4 +56,4 @@ Save vector data into *.yaml* file
     | ...          | PI score | PI score | PI score | PI score |
     | repetition N | PI score | PI score | PI score | PI score |
 
-- `plotResults.m`: Plots the results and save as `pdf`. 
+- `plotResults.m`: Plots the results and save as *pdf*. 
