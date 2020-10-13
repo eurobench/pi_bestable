@@ -7,12 +7,10 @@ Copyright BeStable 2020
 This is an example of Performance Indicator implemented in Octave.
 It is prepared to be used within the Eurobench Benchmarking Software.
 
-
 ## Purposes
 
 Characterize the gait performances (performance indicators - PI) of a walking human subject (step length, step width, step time and target error).
 More technical details are provided within the code [README](src/README.md)
-
 
 ## Installation
 
@@ -32,10 +30,23 @@ Assuming folder `./test_data/input/` contains the input data, and that `./test_d
 ./run_pi ./test_data/input/subject_2_cond_2_run_1_platformData.csv ./test_data/input/subject_2_cond_2_testbed.yaml ./test_data/output
 ```
 
-
 ## Build docker image
 
+_(only tested under linux)_
+
+Run the following command in order to create the docker image for this PI:
+
+```console
+docker build . -t pi_bestable
+```
+
 ## Launch the docker image
+
+Assuming the `test_data/input` contains the input data, and that the directory `out_tests/` is **already created**, and will contain the PI output:
+
+```shell
+docker run --rm -v $PWD/test_data/input:/in -v $PWD/out_tests:/out pi_bestable ./run_pi /in/subject_2_cond_2_run_1_platformData.csv /in/subject_2_cond_2_testbed.yaml /out
+```
 
 ## Acknowledgements
 
