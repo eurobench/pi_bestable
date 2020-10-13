@@ -219,7 +219,9 @@ function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, result_
     
     ## VISUAL REPRESENTATION OF THE RESULTS IN .PDF ############################
     display("Plotting data to pdf...")
-    plotResults(testbed_data,sorted_data);
+    
+    filename = [result_dir, "\\", "plot_results.pdf"];
+    plotResults(filename, testbed_data, sorted_data);
     
     
 endfunction

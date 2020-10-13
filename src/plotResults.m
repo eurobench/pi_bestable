@@ -1,4 +1,4 @@
-function plotResults(testbed_data,sorted_data)
+function plotResults(filename, testbed_data, sorted_data)
 ################################################################################
 # 'function plotResults(testbed_data,sorted_data)'
 #
@@ -172,8 +172,8 @@ L = legend([E_leftLeg,E_rightLeg],...
     ['subject mean with STD (pert. onset at right heel strike)']});
 set(L,'Position',[0.09 0.13 0.14 0.04])
 
-set (gcf, "papersize", [13, 8.5])
-set (gcf, "paperposition", [0, 0, 13, 8.5])
-print -dpdf test_plot.pdf
+set(figure_handle, "papersize", [25, 15])
+set(figure_handle, "paperposition", [0, 0, 25, 15])
+print(figure_handle, filename, "-dpdf");
 
 endfunction
