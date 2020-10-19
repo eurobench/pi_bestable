@@ -1,9 +1,3 @@
-subject_ID: 2
-subject_age: 51
-subject_height: 1.9
-subject_mass: 100
-subject_gender: male
-subject_affected_body_side: none
 treadmill_speed: 0.6
 perturbation_amplitude: 0.3021
 perturbation_direction_fw: true

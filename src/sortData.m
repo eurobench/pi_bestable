@@ -60,66 +60,74 @@ function sorted_data = sortData(data)
             
             pert_en = true;
             
+            if data.target_error(n+2) >= 0
+              target_error = data.target_error(n+2);
+            elseif data.target_error(n+3) >= 0
+              target_error = data.target_error(n+3);
+            else
+              target_error = NaN;
+            endif
+            
             switch str_message(7:end)
                 case 'fw (L)'
                     sorted_data.pert.fw.l_step.step_length(idx_fw_l_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fw.l_step.step_width(idx_fw_l_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fw.l_step.step_time(idx_fw_l_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.fw.l_step.target_error(idx_fw_l_step) = data.target_error(n+2);
+                    sorted_data.pert.fw.l_step.target_error(idx_fw_l_step) = target_error;
                     idx_fw_l_step = idx_fw_l_step + 1;
                 case 'fw (R)'
                     sorted_data.pert.fw.r_step.step_length(idx_fw_r_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fw.r_step.step_width(idx_fw_r_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fw.r_step.step_time(idx_fw_r_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.fw.r_step.target_error(idx_fw_r_step) = data.target_error(n+2);
+                    sorted_data.pert.fw.r_step.target_error(idx_fw_r_step) = target_error;
                     idx_fw_r_step = idx_fw_r_step + 1;
                 case 'iw (L)'
                     sorted_data.pert.iw.l_step.step_length(idx_iw_l_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.iw.l_step.step_width(idx_iw_l_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.iw.l_step.step_time(idx_iw_l_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.iw.l_step.target_error(idx_iw_l_step) = data.target_error(n+2);
+                    sorted_data.pert.iw.l_step.target_error(idx_iw_l_step) = target_error;
                     idx_iw_l_step = idx_iw_l_step + 1;
                 case 'iw (R)'
                     sorted_data.pert.iw.r_step.step_length(idx_iw_r_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.iw.r_step.step_width(idx_iw_r_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.iw.r_step.step_time(idx_iw_r_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.iw.r_step.target_error(idx_iw_r_step) = data.target_error(n+2);
+                    sorted_data.pert.iw.r_step.target_error(idx_iw_r_step) = target_error;
                     idx_iw_r_step = idx_iw_r_step + 1;
                 case 'fwiw (L)'
                     sorted_data.pert.fwiw.l_step.step_length(idx_fwiw_l_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwiw.l_step.step_width(idx_fwiw_l_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwiw.l_step.step_time(idx_fwiw_l_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.fwiw.l_step.target_error(idx_fwiw_l_step) = data.target_error(n+2);
+                    sorted_data.pert.fwiw.l_step.target_error(idx_fwiw_l_step) = target_error;
                     idx_fwiw_l_step = idx_fwiw_l_step + 1;
                 case 'fwiw (R)'
                     sorted_data.pert.fwiw.r_step.step_length(idx_fwiw_r_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwiw.r_step.step_width(idx_fwiw_r_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwiw.r_step.step_time(idx_fwiw_r_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.fwiw.r_step.target_error(idx_fwiw_r_step) = data.target_error(n+2);
+                    sorted_data.pert.fwiw.r_step.target_error(idx_fwiw_r_step) = target_error;
                     idx_fwiw_r_step = idx_fwiw_r_step + 1;
                 case 'fwow (L)'
                     sorted_data.pert.fwow.l_step.step_length(idx_fwow_l_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwow.l_step.step_width(idx_fwow_l_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwow.l_step.step_time(idx_fwow_l_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.fwow.l_step.target_error(idx_fwow_l_step) = data.target_error(n+2);
+                    sorted_data.pert.fwow.l_step.target_error(idx_fwow_l_step) = target_error;
                     idx_fwow_l_step = idx_fwow_l_step + 1;
                 case 'fwow (R)'
                     sorted_data.pert.fwow.r_step.step_length(idx_fwow_r_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwow.r_step.step_width(idx_fwow_r_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.fwow.r_step.step_time(idx_fwow_r_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.fwow.r_step.target_error(idx_fwow_r_step) = data.target_error(n+2);
+                    sorted_data.pert.fwow.r_step.target_error(idx_fwow_r_step) = target_error;
                     idx_fwow_r_step = idx_fwow_r_step + 1;
                 case 'ow (L)'
                     sorted_data.pert.ow.l_step.step_length(idx_ow_l_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.ow.l_step.step_width(idx_ow_l_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.ow.l_step.step_time(idx_ow_l_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.ow.l_step.target_error(idx_ow_l_step) = data.target_error(n+2);
+                    sorted_data.pert.ow.l_step.target_error(idx_ow_l_step) = target_error;
                     idx_ow_l_step = idx_ow_l_step + 1;
                 case 'ow (R)'
                     sorted_data.pert.ow.r_step.step_length(idx_ow_r_step,:) = data.step_length(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.ow.r_step.step_width(idx_ow_r_step,:) = data.step_width(n+1:n+NO_STEPS_AFTER_PERT);
                     sorted_data.pert.ow.r_step.step_time(idx_ow_r_step,:) = data.step_time(n+1:n+NO_STEPS_AFTER_PERT);
-                    sorted_data.pert.ow.r_step.target_error(idx_ow_r_step) = data.target_error(n+2);
+                    sorted_data.pert.ow.r_step.target_error(idx_ow_r_step) = target_error;
                     idx_ow_r_step = idx_ow_r_step + 1;
             endswitch
             flag_continue = NO_STEPS_AFTER_PERT;

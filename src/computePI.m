@@ -1,14 +1,15 @@
-function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, result_dir)
+function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, personal_file, result_dir)
 ################################################################################
-# 'function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, result_dir)'
+# 'function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, personal_file, result_dir)'
 # 
 # 1) Imports following files:
-#       subject_X_cond_Y_testbed.yaml
 #       subject_X_cond_Y_run_Z_platformData.csv
+#       subject_X_cond_Y_testbed.yaml
+#       subject_X_personalData.yaml
 # 2) Sort data from subject_X_cond_Y_run_Z_platformData.csv
 # 3) Calculate PI statistics: step length/width/time/target error
 # 4) Save PI results as text and save it in *.yaml files
-# 5) Save PI results as plots and save it in *.pdf
+# 5) Plot PI results and save it as *.pdf
 # 
 # Copyright BeStable project 2020
 # 
@@ -17,10 +18,11 @@ function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, result_
     #{
     csv_file = "../test_data/input/subject_2_cond_2_run_1_platformData.csv";
     testbed_file = "../test_data/input/subject_2_cond_2_testbed.yaml";
+    personal_file = "../test_data/input/subject_2_personalData.yaml";
     result_dir = "../test_data/output/";
     #}
     
-    disp(["Input parameters: ", csv_file, " ", testbed_file, " ", result_dir])
+    disp(["Input parameters: ", csv_file, " ", testbed_file, " ", personal_file, " ", result_dir])
     
     
     
@@ -29,7 +31,10 @@ function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, result_
     data = importData(csv_file);
     
     display("Importing testbed data...")
-    testbed_data = importTestbedData(testbed_file);
+    testbed_data = importYAML(testbed_file);
+    
+    display("Importing personal data...")
+    personal_data = importYAML(personal_file);
     
     
     
@@ -221,7 +226,7 @@ function [testbed_data, sorted_data] = computePI(csv_file, testbed_file, result_
     display("Plotting data to pdf...")
     
     filename = [result_dir, "/", "plot_results.pdf"];
-    plotResults(filename, testbed_data, sorted_data);
+    plotResults(filename, personal_data, testbed_data, sorted_data);
     
     
 endfunction

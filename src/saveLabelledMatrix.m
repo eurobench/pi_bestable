@@ -19,8 +19,8 @@ function saveLabelledMatrix(filename, data)
     fid = fopen(filename, "w");
     fputs(fid,"type: 'labelled_matrix'\n");
     labelled_matrix_str = ["value: [['step1', 'step2', 'step3', 'step4'],"];
-    for i = 1:size(data,1)
-      row_str = num2str(data(1,:), "%1.5f, ");
+    for k = 1:size(data,1)
+      row_str = num2str(data(k,:), "%1.5f, ");
       labelled_matrix_str = [labelled_matrix_str, [" [" row_str(1:end-1) "],"]];
     endfor
     labelled_matrix_str = [labelled_matrix_str(1:end-1) "]"];

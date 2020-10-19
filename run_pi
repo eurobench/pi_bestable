@@ -3,15 +3,16 @@
 printf ("current directory: %s\n", pwd())
 addpath("src")
 arg_list = argv ();
-if nargin != 3
-  printf ("ERROR: There should be 3 arguments. A .csv file containing the experiment data, a .yaml file containing the testbed data and the directory path where the results will be stored\n");
+if nargin != 4
+  printf ("ERROR: There should be 4 arguments. A .csv file containing the experiment data, a .yaml file containing the testbed data, a .yaml file containing the personal data and the directory path where the results will be stored\n");
   printf ("Example:\n");
-  printf ("\t./run_pi ./test_data/input/subject_2_cond_2_run_1_platformData.csv ./test_data/input/subject_2_cond_2_testbed.yaml ./test_data/output\n\n");
+  printf ("\t./run_pi ./test_data/input/subject_X_cond_Y_run_Z_platformData.csv ./test_data/input/subject_X_cond_Y_testbed.yaml ./test_data/input/subject_X_personalData.yaml ./test_data/output\n\n");
   exit(127);
 endif
 
 printf ("csv file: %s\n", arg_list{1});
 printf ("testbed file: %s\n", arg_list{2});
-printf ("result directory: %s\n", arg_list{3});
+printf ("personalData file: %s\n", arg_list{3});
+printf ("result directory: %s\n", arg_list{4});
 
-computePI(arg_list{1}, arg_list{2}, arg_list{3})
+computePI(arg_list{1}, arg_list{2}, arg_list{3}, arg_list{4})

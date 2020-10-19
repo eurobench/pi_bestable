@@ -1,14 +1,14 @@
-function data = importTestbedData(testbed_file)
+function data = importYAML(yaml_file)
 ################################################################################
-# 'function data = importTestbedData(testbed_file)'
+# 'function data = importTestbedData(yaml_file)'
 #
-# Imports data from subject_X_cond_Y_run_Z_testbed.yaml
+# Imports data from .yaml file and returns structure data
 #
 # Copyright BeStable project 2020
 #
 ################################################################################
     
-    fid = fopen(testbed_file);
+    fid = fopen(yaml_file);
     spec = "%s %s";
     infile = textscan(fid, spec, 'Delimiter', ':');
     labels = infile{1};
