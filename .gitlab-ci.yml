@@ -13,16 +13,12 @@ before_script:
 
 gen_docker:
   stage: build
-  tags:
-    - ci
   script:
     - 'echo "name: $CI_PROJECT_NAME:$CI_COMMIT_REF_NAME"'
     - docker build . -t ${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}
 
 test_docker:
   stage: test
-  tags:
-    - ci
   script:
     - wget -O test_docker_call.py https://raw.githubusercontent.com/eurobench/docker_test/master/test_docker_call.py
     - export DOCKER_IMAGE='${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}'
