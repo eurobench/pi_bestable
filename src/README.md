@@ -11,9 +11,9 @@ computePI("[path_to]/platformData.csv", "[path_to]/testbed.yaml", "[path_to]/per
 ```
 
 Current test files are located in [input folder](../test_data/input)
-- `csv_file = "../test_data/input/subject_2_cond_2_run_1_platformData.csv"`
-- `testbed_file = "../test_data/input/subject_2_cond_2_testbed.yaml"`
-- `personalData_file = "../test_data/input/subject_2_personalData.yaml"`
+- `csv_file = "../test_data/input/subject_19_cond_2_run_1_platformData.csv"`
+- `testbed_file = "../test_data/input/subject_19_cond_2_run_1_platformData.yaml"`
+- `personalData_file = "../test_data/input/subject_19_personalData.yaml"`
 
 and the results are stored in the [output folder](../test_data/output).
 - `result_dir = "../test_data/output/"`
@@ -58,4 +58,4 @@ Save vector data into *yaml* file
     | ...          | PI score | PI score | PI score | PI score |
     | repetition N | PI score | PI score | PI score | PI score |
 
-- `plotResults.m`: Plots the results and save as `plot_results.pdf`.
+- `plotResults.m`: Plots the results as boxplots using custom function `boxplots.m` and save as `plot_results.pdf`.

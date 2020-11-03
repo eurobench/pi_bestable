@@ -21,4 +21,5 @@ function data = importData(csv_file)
     data.target_error = DATA.data(:,8);
     data.message = text_data(3:3:end);
     
+    
 endfunction

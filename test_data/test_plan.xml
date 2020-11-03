@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test_plan>
 <test pi_name="run_fpe"
-      parameters="/in/subject_2_cond_2_run_1_platformData.csv /in/subject_2_cond_2_testbed.yaml /out"
+      parameters="/in/subject_19_cond_2_run_1_platformData.csv /in/subject_19_cond_2_testbed.yaml /out"
       input_folder="input"
       output_folder="output"/>
 </test_plan>
