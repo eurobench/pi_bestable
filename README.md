@@ -14,6 +14,9 @@ More technical details are provided within the code [README](src/README.md)
 
 ## Installation
 
+To run the application the following Octave packages are needed:
+
+pkg load statistics
 
 ## Usage
 
