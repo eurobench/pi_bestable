@@ -14,9 +14,12 @@ More technical details are provided within the code [README](src/README.md)
 
 ## Installation
 
-To run the application the following Octave packages are needed:
+To run the application the following dependencies are needed:
 
+```console
+sudo apt install fig2dev
 pkg load statistics
+```
 
 ## Usage
 
