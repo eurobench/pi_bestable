@@ -14,6 +14,12 @@ More technical details are provided within the code [README](src/README.md)
 
 ## Installation
 
+To run the application the following dependencies are needed:
+
+```console
+sudo apt install fig2dev
+pkg load statistics
+```
 
 ## Usage
 
@@ -27,7 +33,7 @@ chmod 755 run_pi
 Assuming folder `./test_data/input/` contains the input data, and that `./test_data/output` exists and will contain the resulting files, the shell command is:
 
 ```console
-./run_pi ./test_data/input/subject_2_cond_2_run_1_platformData.csv ./test_data/input/subject_2_cond_2_testbed.yaml ./test_data/input/subject_2_personalData.yaml ./test_data/output
+./run_pi ./test_data/input/subject_19_cond_2_run_1_platformData.csv ./test_data/input/subject_19_cond_2_testbed.yaml ./test_data/input/subject_19_personalData.yaml ./test_data/output
 ```
 
 ## Build docker image
@@ -45,7 +51,7 @@ docker build . -t pi_bestable
 Assuming the `test_data/input` contains the input data, and that the directory `out_tests/` is **already created**, and will contain the PI output:
 
 ```shell
-docker run --rm -v $PWD/test_data/input:/in -v $PWD/out_tests:/out pi_bestable ./run_pi /in/subject_2_cond_2_run_1_platformData.csv /in/subject_2_cond_2_testbed.yaml /out
+docker run --rm -v $PWD/test_data/input:/in -v $PWD/out_tests:/out pi_bestable ./run_pi /in/subject_19_cond_2_run_1_platformData.csv /in/subject_19_cond_2_testbed.yaml /out
 ```
 
 ## Acknowledgements
