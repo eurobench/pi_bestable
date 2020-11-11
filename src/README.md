@@ -59,3 +59,14 @@ Save vector data into *yaml* file
     | repetition N | PI score | PI score | PI score | PI score |
 
 - `plotResults.m`: Plots the results as boxplots using custom function `boxplots.m` and save as `plot_results.pdf`.
+
+
+## Performance Indicators (PI)
+
+The following PI scores are calculated from the BeStable testbed:
+
+- *step_length*
+- *step_width*
+- *step_time*
+- *target_error* (if perturbations were enabled)
+- *success_rate* (if perturbations were enabled)
