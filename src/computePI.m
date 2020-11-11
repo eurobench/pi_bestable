@@ -26,9 +26,9 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
 ################################################################################
     
     #{
-    csv_file = "../test_data/input/subject_2_cond_2_run_1_platformData.csv";
-    testbed_file = "../test_data/input/subject_2_cond_2_testbed.yaml";
-    personal_file = "../test_data/input/subject_2_personalData.yaml";
+    csv_file = "../test_data/input/subject_19_cond_2_run_1_platformData.csv";
+    testbed_file = "../test_data/input/subject_19_cond_2_testbed.yaml";
+    personal_file = "../test_data/input/subject_19_personalData.yaml";
     result_dir = "../test_data/output/";
     #}
     
@@ -117,7 +117,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.fw.l_step.target_error);
       # perturbed walking/fw perturbation step with left foot/success_rate
       filename = [result_dir, "/", "pert_left_fw_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.fw.l_step.success_rate);
+      saveScalar(filename, sorted_data.pert.fw.l_step.success_rate);
       if ~isfield(sorted_data.pert.fw,'r_step')
         sorted_data.pert.fw.r_step.step_length = nan(1,4);
         sorted_data.pert.fw.r_step.step_width = nan(1,4);
@@ -139,7 +139,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.fw.r_step.target_error);
       # perturbed walking/fw perturbation step with right foot/success_rate
       filename = [result_dir, "/", "pert_right_fw_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.fw.r_step.success_rate);
+      saveScalar(filename, sorted_data.pert.fw.r_step.success_rate);
     endif
     
     if isfield(sorted_data.pert,'fwiw')
@@ -164,7 +164,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.fwiw.l_step.target_error);
       # perturbed walking/fwiw perturbation step with left foot/success_rate
       filename = [result_dir, "/", "pert_left_fwiw_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.fwiw.l_step.success_rate);
+      saveScalar(filename, sorted_data.pert.fwiw.l_step.success_rate);
       if ~isfield(sorted_data.pert.fwiw,'r_step')
         sorted_data.pert.fwiw.r_step.step_length = nan(1,4);
         sorted_data.pert.fwiw.r_step.step_width = nan(1,4);
@@ -186,7 +186,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.fwiw.r_step.target_error);
       # perturbed walking/fwiw perturbation step with right foot/success_rate
       filename = [result_dir, "/", "pert_right_fwiw_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.fwiw.r_step.success_rate);
+      saveScalar(filename, sorted_data.pert.fwiw.r_step.success_rate);
     endif
     
     if isfield(sorted_data.pert,'fwow')
@@ -211,7 +211,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.fwow.l_step.target_error);
       # perturbed walking/fwow perturbation step with left foot/success_rate
       filename = [result_dir, "/", "pert_left_fwow_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.fwow.l_step.success_rate);
+      saveScalar(filename, sorted_data.pert.fwow.l_step.success_rate);
       if ~isfield(sorted_data.pert.fwow,'r_step')
         sorted_data.pert.fwow.r_step.step_length = nan(1,4);
         sorted_data.pert.fwow.r_step.step_width = nan(1,4);
@@ -233,7 +233,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.fwow.r_step.target_error);
       # perturbed walking/fwow perturbation step with right foot/success_rate
       filename = [result_dir, "/", "pert_right_fwow_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.fwow.r_step.success_rate);
+      saveScalar(filename, sorted_data.pert.fwow.r_step.success_rate);
     endif
     
     if isfield(sorted_data.pert,'iw')
@@ -258,7 +258,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.iw.l_step.target_error);
       # perturbed walking/iw perturbation step with left foot/success_rate
       filename = [result_dir, "/", "pert_left_iw_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.iw.l_step.success_rate);
+      saveScalar(filename, sorted_data.pert.iw.l_step.success_rate);
       if ~isfield(sorted_data.pert.iw,'r_step')
         sorted_data.pert.iw.r_step.step_length = nan(1,4);
         sorted_data.pert.iw.r_step.step_width = nan(1,4);
@@ -280,7 +280,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.iw.r_step.target_error);
       # perturbed walking/iw perturbation step with right foot/success_rate
       filename = [result_dir, "/", "pert_right_iw_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.iw.r_step.success_rate);
+      saveScalar(filename, sorted_data.pert.iw.r_step.success_rate);
     endif
     
     if isfield(sorted_data.pert,'ow')
@@ -305,7 +305,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.ow.l_step.target_error);
       # perturbed walking/ow perturbation step with left foot/success_rate
       filename = [result_dir, "/", "pert_left_ow_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.ow.l_step.success_rate);
+      saveScalar(filename, sorted_data.pert.ow.l_step.success_rate);
       if ~isfield(sorted_data.pert.ow,'r_step')
         sorted_data.pert.ow.r_step.step_length = nan(1,4);
         sorted_data.pert.ow.r_step.step_width = nan(1,4);
@@ -327,7 +327,7 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
       saveVector(filename, sorted_data.pert.ow.r_step.target_error);
       # perturbed walking/ow perturbation step with right foot/success_rate
       filename = [result_dir, "/", "pert_right_ow_success_rate.yaml"];
-      saveVector(filename, sorted_data.pert.ow.r_step.success_rate);
+      saveScalar(filename, sorted_data.pert.ow.r_step.success_rate);
     endif
     
     

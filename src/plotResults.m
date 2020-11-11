@@ -32,35 +32,38 @@ annotation(figure_handle,'textbox',[0.1 0.20 0.09 0.14],...
 
 ## NATIVE GAIT #################################################################
 # step length
-subplot(4,6,1)
+h_subplot_step_length(1) = subplot(4,6,1);
 h1 = boxplots(...
        {sorted_data.base.l_heel_strike.step_length,sorted_data.base.r_heel_strike.step_length;
         sorted_data.free.l_heel_strike.step_length,sorted_data.free.r_heel_strike.step_length},...
         'labels',{'BASE','FREE'},'colors',{[1 .4 .4],[.4 .4 1]},'Space',0.6,'Width',1,'TickSize',0.9);
-axis([0.5 2.5 0 1])
+ylim_step_length(1,:) = ylim;
+xlim([0.5 2.5])
 grid
 box on
 ylabel('Step length (m)')
 title('NATIVE GAIT')
 
 # step width
-subplot(4,6,7)
+h_subplot_step_width(1) = subplot(4,6,7);
 h1 = boxplots(...
        {sorted_data.base.l_heel_strike.step_width,sorted_data.base.r_heel_strike.step_width;
         sorted_data.free.l_heel_strike.step_width,sorted_data.free.r_heel_strike.step_width},...
         'labels',{'BASE','FREE'},'colors',{[1 .4 .4],[.4 .4 1]},'Space',0.6,'Width',1,'TickSize',0.9);
-axis([0.5 2.5 -0.2 0.6])
+ylim_step_width(1,:) = ylim;
+xlim([0.5 2.5])
 grid
 box on
 ylabel('Step width (m)')
 
 # step time
-subplot(4,6,13)
+h_subplot_step_time(1) = subplot(4,6,13);
 h1 = boxplots(...
        {sorted_data.base.l_heel_strike.step_time,sorted_data.base.r_heel_strike.step_time;
         sorted_data.free.l_heel_strike.step_time,sorted_data.free.r_heel_strike.step_time},...
         'labels',{'BASE','FREE'},'colors',{[1 .4 .4],[.4 .4 1]},'Space',0.6,'Width',1,'TickSize',0.9);
-axis([0.5 2.5 0.6 1.8])
+ylim_step_time(1,:) = ylim;
+xlim([0.5 2.5])
 grid
 box on
 ylabel('Step time (s)')
@@ -76,15 +79,17 @@ for j = 1:length(fieldNames)
     
     pertStr = fieldNames{j};
     eval(['plot_pert_data = sorted_data.pert.' pertStr ';'])
+    
     # step length
-    subplot(4,6,j+1)
+    h_subplot_step_length(j+1) = subplot(4,6,j+1);
     boxplots(...
       {plot_pert_data.l_step.step_length(:,1),plot_pert_data.r_step.step_length(:,1);
        plot_pert_data.l_step.step_length(:,2),plot_pert_data.r_step.step_length(:,2);
        plot_pert_data.l_step.step_length(:,3),plot_pert_data.r_step.step_length(:,3);
        plot_pert_data.l_step.step_length(:,4),plot_pert_data.r_step.step_length(:,4)}...
        ,'labels',{'STEP_1','STEP_2','STEP_3','STEP_4'},'colors',{[1 .4 .4],[.4 .4 1]},'Space',0.6,'Width',1,'TickSize',0.9);
-    axis([0.5 4.5 0 1])
+    ylim_step_length(j+1,:) = ylim;
+    xlim([0.5 4.5])
     grid
     box on
     ylabel('Step length (m)')
@@ -103,27 +108,29 @@ for j = 1:length(fieldNames)
     endswitch
     
     # step width
-    subplot(4,6,j+1+6)
+    h_subplot_step_width(j+1) = subplot(4,6,j+1+6);
     boxplots(...
        {plot_pert_data.l_step.step_width(:,1),plot_pert_data.r_step.step_width(:,1);
         plot_pert_data.l_step.step_width(:,2),plot_pert_data.r_step.step_width(:,2);
         plot_pert_data.l_step.step_width(:,3),plot_pert_data.r_step.step_width(:,3);
         plot_pert_data.l_step.step_width(:,4),plot_pert_data.r_step.step_width(:,4)},...
         'labels',{'STEP_1','STEP_2','STEP_3','STEP_4'},'colors',{[1 .4 .4],[.4 .4 1]},'Space',0.6,'Width',1,'TickSize',0.9);
-    axis([0.5 4.5 -0.2 0.6])
+    ylim_step_width(j+1,:) = ylim;
+    xlim([0.5 4.5])
     grid
     box on
     ylabel('Step width (m)')
     
     # step time
-    subplot(4,6,j+1+12)
+    h_subplot_step_time(j+1) = subplot(4,6,j+1+12);
     boxplots(...
        {plot_pert_data.l_step.step_time(:,1),plot_pert_data.r_step.step_time(:,1);
         plot_pert_data.l_step.step_time(:,2),plot_pert_data.r_step.step_time(:,2);
         plot_pert_data.l_step.step_time(:,3),plot_pert_data.r_step.step_time(:,3);
         plot_pert_data.l_step.step_time(:,4),plot_pert_data.r_step.step_time(:,4)},...
         'labels',{'STEP_1','STEP_2','STEP_3','STEP_4'},'colors',{[1 .4 .4],[.4 .4 1]},'Space',0.6,'Width',1,'TickSize',0.9);
-    axis([0.5 4.5 0.6 1.8])
+    ylim_step_time(j+1,:) = ylim;
+    xlim([0.5 4.5])
     grid
     box on
     ylabel('Step time (s)')
@@ -152,6 +159,15 @@ for j = 1:length(fieldNames)
     ylabel('Success rate (%)')
     
 endfor
+
+% set y limits
+ylim_step_length = [min(ylim_step_length(:)) max(ylim_step_length(:))];
+set(h_subplot_step_length,'ylim',ylim_step_length)
+ylim_step_width = [min(ylim_step_width(:)) max(ylim_step_width(:))];
+set(h_subplot_step_width,'ylim',ylim_step_width)
+ylim_step_time = [min(ylim_step_time(:)) max(ylim_step_time(:))];
+set(h_subplot_step_time,'ylim',ylim_step_time)
+
 
 set(figure_handle, "papersize", [25, 15])
 set(figure_handle, "paperposition", [0, 0, 25, 15])
