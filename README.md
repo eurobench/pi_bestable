@@ -23,6 +23,22 @@ pkg load statistics
 
 ## Usage
 
+### from octave
+
+Assuming we are in an Octave terminal, located at the root of this repository, the computation can be launched as follows:
+
+```octave
+# add source location to the octave path
+addpath('src')
+# we assume that a folder test_output has been previously created
+computePI('test_data/input/subject_19_cond_2_run_1_platformData.csv', 'test_data/input/subject_19_cond_2_testbed.yaml', 'test_data/input/subject_19_personalData.yaml','test_output')
+```
+
+All Performance indicator files will be placed in the indicated folder `test_output`.
+
+
+### using the script
+
 The script `run_pi` launches this PI from the shell of a machine with Octave installed.
 The permissions of this file must be changed in order to be executable:
 
@@ -30,10 +46,10 @@ The permissions of this file must be changed in order to be executable:
 chmod 755 run_pi
 ```
 
-Assuming folder `./test_data/input/` contains the input data, and that `./test_data/output` exists and will contain the resulting files, the shell command is:
+Assuming folder `./test_data/input/` contains the input data, and that `./test_output` exists and will contain the resulting files, the shell command is:
 
 ```console
-./run_pi ./test_data/input/subject_19_cond_2_run_1_platformData.csv ./test_data/input/subject_19_cond_2_testbed.yaml ./test_data/input/subject_19_personalData.yaml ./test_data/output
+./run_pi ./test_data/input/subject_19_cond_2_run_1_platformData.csv ./test_data/input/subject_19_cond_2_testbed.yaml ./test_data/input/subject_19_personalData.yaml ./test_output
 ```
 
 ## Build docker image
@@ -51,7 +67,7 @@ docker build . -t pi_bestable
 Assuming the `test_data/input` contains the input data, and that the directory `out_tests/` is **already created**, and will contain the PI output:
 
 ```shell
-docker run --rm -v $PWD/test_data/input:/in -v $PWD/out_tests:/out pi_bestable ./run_pi /in/subject_19_cond_2_run_1_platformData.csv /in/subject_19_cond_2_testbed.yaml /out
+docker run --rm -v $PWD/test_data/input:/in -v $PWD/out_tests:/out pi_bestable ./run_pi /in/subject_19_cond_2_run_1_platformData.csv /in/subject_19_cond_2_testbed.yaml /in/subject_19_personalData.yaml /out
 ```
 
 ## Acknowledgements

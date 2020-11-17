@@ -15,4 +15,6 @@ printf ("testbed file: %s\n", arg_list{2});
 printf ("personalData file: %s\n", arg_list{3});
 printf ("result directory: %s\n", arg_list{4});
 
+pkg load statistics
+
 computePI(arg_list{1}, arg_list{2}, arg_list{3}, arg_list{4})
