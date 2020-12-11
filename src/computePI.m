@@ -1,6 +1,6 @@
-function data = computePI(csv_file, testbed_file, personal_file, result_dir)
+function data = computePI(platform_data_file, condition_file, subject_info_file, result_dir)
 ################################################################################
-# 'function data = computePI(csv_file, testbed_file, personal_file, result_dir)'
+# 'function data = computePI(platform_data_file, condition_file, subject_info_file, result_dir)'
 # 
 # 1) Imports following files:
 #       subject_X_cond_Y_run_Z_platformData.csv
@@ -26,25 +26,25 @@ function data = computePI(csv_file, testbed_file, personal_file, result_dir)
 ################################################################################
     
     #{
-    csv_file = "../test_data/input/subject_19_cond_2_run_1_platformData.csv";
-    testbed_file = "../test_data/input/subject_19_cond_2_testbed.yaml";
-    personal_file = "../test_data/input/subject_19_personalData.yaml";
+    platform_data_file = "../test_data/input/subject_19_cond_2_run_1_platformData.csv";
+    condition_file = "../test_data/input/subject_19_condition_2.yaml";
+    subject_info_file = "../test_data/input/subject_19_info.yaml";
     result_dir = "../test_data/output/";
     #}
     
-    disp(["Input parameters: ", csv_file, " ", testbed_file, " ", personal_file, " ", result_dir])
+    disp(["Input parameters: ", platform_data_file, " ", condition_file, " ", subject_info_file, " ", result_dir])
     
     
     
     ## IMPORT DATA #############################################################
     display("Importing platform data...")
-    raw_data = importData(csv_file);
+    raw_data = importData(platform_data_file);
     
     display("Importing testbed data...")
-    testbed_data = importYAML(testbed_file);
+    testbed_data = importYAML(condition_file);
     
     display("Importing personal data...")
-    personal_data = importYAML(personal_file);
+    personal_data = importYAML(subject_info_file);
     
     
     
