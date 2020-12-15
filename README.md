@@ -49,7 +49,7 @@ chmod 755 run_pi
 Assuming folder `./test_data/input/` contains the input data, and that `./test_output` exists and will contain the resulting files, the shell command is:
 
 ```console
-./run_pi ./test_data/input/subject_19_cond_2_run_1_platformData.csv ./test_data/input/subject_19_condition_2.yaml ./test_data/input/subject_19_info.yaml ./test_output
+./run_pi ./test_data/input/subject_19_cond_2_run_1_platformData.csv  ./test_data/input/subject_19_condition_2.yaml ./test_data/input/subject_19_info.yaml ./out_tests
 ```
 
 ## Build docker image
