@@ -7,13 +7,13 @@ The code was developed by BeStable for Eurobench purposes.
 The current entry point is [computePI.m](computePI.m).
 
 ```octave
-computePI("[path_to]/platformData.csv", "[path_to]/testbed.yaml", "[path_to]/personalData.yaml", result_dir)
+computePI("[path_to]/subject_X_cond_Y_run_Z_platformData.csv", "[path_to]/subject_X_condition_Y.yaml", "[path_to]/subject_X_info.yaml", result_dir)
 ```
 
 Current test files are located in [input folder](../test_data/input)
 - `csv_file = "../test_data/input/subject_19_cond_2_run_1_platformData.csv"`
-- `testbed_file = "../test_data/input/subject_19_cond_2_run_1_platformData.yaml"`
-- `personalData_file = "../test_data/input/subject_19_personalData.yaml"`
+- `testbed_file = "../test_data/input/subject_19_condition_2.yaml"`
+- `personalData_file = "../test_data/input/subject_19_info.yaml"`
 
 and the results are stored in the [output folder](../test_data/output).
 - `result_dir = "../test_data/output/"`
@@ -26,8 +26,8 @@ The input parameters are:
     | -- | -- | -- | -- | -- | -- | -- | -- | -- |
     | step_number | time_stamp | limb_initial | limb_final | step_width	| step_length |	step_time |	target_error | message |
 
-- `subject_X_cond_Y_testbed.yaml`: a *yaml* file containing protocol parameters.
-- `subject_X_personalData.yaml`: a *yaml* file containing subject information.
+- `subject_X_condition_Y.yaml`: a *yaml* file containing protocol parameters.
+- `subject_X_info.yaml`: a *yaml* file containing subject information.
 - `result_dir`: a *[path]* to directory, where output *yaml* files should be stored
 
 The current code is to be launched **per trial**.
@@ -39,7 +39,7 @@ The main function `computePI.m` uses six functions to obtain measured data from 
 
 - `importData.m`: Imports data from `subject_X_cond_Y_run_Z_platformData.csv` file.
 
-- `importYAML.m`: Imports data from *yaml* files. In our case two files: `subject_X_cond_Y_testbed.yaml` and `subject_X_personalData.yaml`
+- `importYAML.m`: Imports data from *yaml* files. In our case two files: `subject_X_condition_Y.yaml` and `subject_X_info.yaml`
 
 - `sortData.m`: Sort data containing PI of consecutive steps to:
     1. **base**: unperturbed walking before enabling perturbations
