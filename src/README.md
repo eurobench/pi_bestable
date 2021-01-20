@@ -12,8 +12,8 @@ computePI("[path_to]/subject_X_cond_Y_run_Z_platformData.csv", "[path_to]/subjec
 
 Current test files are located in [input folder](../test_data/input)
 - `csv_file = "../test_data/input/subject_19_cond_2_run_1_platformData.csv"`
-- `testbed_file = "../test_data/input/subject_19_condition_2.yaml"`
-- `personalData_file = "../test_data/input/subject_19_info.yaml"`
+- `condition_file = "../test_data/input/subject_19_condition_2.yaml"`
+- `info_file = "../test_data/input/subject_19_info.yaml"`
 
 and the results are stored in the [output folder](../test_data/output).
 - `result_dir = "../test_data/output/"`
