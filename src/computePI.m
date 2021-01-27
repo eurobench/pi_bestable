@@ -4,8 +4,8 @@ function data = computePI(platform_data_file, condition_file, subject_info_file,
 # 
 # 1) Imports following files:
 #       subject_X_cond_Y_run_Z_platformData.csv
-#       subject_X_cond_Y_testbed.yaml
-#       subject_X_personalData.yaml
+#       subject_X_condition_Y.yaml
+#       subject_X_info.yaml
 # 2) Sorts data from subject_X_cond_Y_run_Z_platformData.csv
 # 3) Calculates PI statistics:
 #       - step length
@@ -16,10 +16,10 @@ function data = computePI(platform_data_file, condition_file, subject_info_file,
 # 4) Saves PI results as text and save it in *.yaml files
 # 5) Plots PI results and save it as *.pdf
 # 6) The function computePI() returns structured data containing:
-#       - personal data
-#       - testbed data
-#       - raw data
-#       - sorted data
+#       - subject_info
+#       - condition
+#       - raw_data
+#       - sorted_data
 # 
 # Copyright BeStable project 2020
 # 
@@ -41,16 +41,16 @@ function data = computePI(platform_data_file, condition_file, subject_info_file,
     raw_data = importData(platform_data_file);
     
     display("Importing testbed data...")
-    testbed_data = importYAML(condition_file);
+    condition = importYAML(condition_file);
     
     display("Importing personal data...")
-    personal_data = importYAML(subject_info_file);
+    subject_info = importYAML(subject_info_file);
     
     
     
     ## SORT DATA ###############################################################
     display("Sorting data...")
-    sorted_data = sortData(raw_data,testbed_data);
+    sorted_data = sortData(raw_data,condition);
     
     
     
@@ -336,13 +336,13 @@ function data = computePI(platform_data_file, condition_file, subject_info_file,
     display("Plotting data to pdf...")
     
     filename = [result_dir, "/", "plot_results.pdf"];
-    plotResults(filename, personal_data, testbed_data, sorted_data);
+    plotResults(filename, subject_info, condition, sorted_data);
     
     
     ## OUTPUT DATA AS STRUCTURE
     data.raw_data = raw_data;
-    data.testbed_data = testbed_data;
-    data.personal_data = personal_data;
+    data.condition = condition;
+    data.subject_info = subject_info;
     data.sorted_data = sorted_data;
     
     

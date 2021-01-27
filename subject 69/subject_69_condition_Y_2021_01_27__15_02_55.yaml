@@ -1,0 +1,11 @@
+treadmill_speed: 0.7
+perturbation_amplitude: 0.2862
+perturbation_direction_fw: true
+perturbation_direction_fwow: true
+perturbation_direction_fwiw: true
+perturbation_direction_iw: true
+perturbation_direction_ow: true
+perturbation_randomized: true
+target_step: both_feet
+perturbation_repetitions: 4
+sound: true
