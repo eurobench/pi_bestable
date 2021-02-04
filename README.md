@@ -10,43 +10,41 @@ It is prepared to be used within the Eurobench Benchmarking Software.
 ## Purposes
 
 Characterize the gait performances (performance indicators - PI) of a walking human subject (step length, step width, step time and target error).
-More technical details are provided within the code [README](src/README.md)
 
 ### Testbed data collection
 
-The operator inputs subject information and selects perturbation parameters (protocol condition) in D-Flow testbed software (Runtime Console). 
+Before starting the measurement, the operator inputs subject information and selects perturbation parameters (protocol condition) in D-Flow testbed software (Runtime Console). 
 
-The system checks if perturbation parameters are the same as in previous run (if any). If yes, the system increase run (Z) number, while the condition file (Y) remains the same. If not, the system increase Y and start with new run (Z=1).
-Note that only previous condition file is checked with current protocol parameters.
-Block diagram. 
+The software checks if perturbation parameters (stored in `subject_X_condition_Y.yaml`) are the same as in previous run (if previous run exists). If yes, the system increase run number (Z=Z+1), while the condition number (Y=Y) remains the same. If not, the system increase condition number (Y=Y+1) and starts with new run (Z=1).
+**Note** that only previous condition file is checked with the current protocol.
+
+Block diagram.
 
 The BeStable testbed outputs the following files:
-1. subject_X_info.yaml
-2. subject_X_condition_Y.yaml
-3. subject_X_cond_Y_run_Z_platformData.csv
-4. subject_X_cond_Y_run_Z_gaitEvents.csv
+1. **subject_X_info.yaml**
+1. **subject_X_condition_Y.yaml**
+1. **subject_X_cond_Y_run_Z_platformData.csv**
+1. **subject_X_cond_Y_run_Z_gaitEvents.csv** (not used for PI computation)
 
 Files 1-3 need to be uploaded for the performance indicators calculation process, where the following files are generated:
-1. base_step_length_{left, right}.yaml
-2. base_step_width_{left, right}.yaml
-3. base_step_time_{left, right}.yaml
+1. **base_step_length_{left, right}.yaml**
+1. **base_step_width_{left, right}.yaml**
+1. **base_step_time_{left, right}.yaml**
+1. **free_step_length_{left, right}.yaml**
+1. **free_step_width_{left, right}.yaml**
+1. **free_step_time_{left, right}.yaml**
+1. **pert_{left, right}_{fw, fwiw, fwow, iw, ow}_step_length.yaml**
+1. **pert_{left, right}_{fw, fwiw, fwow, iw, ow}_step_width.yaml**
+1. **pert_{left, right}_{fw, fwiw, fwow, iw, ow}_step_time.yaml**
+1. **pert_{left, right}_{fw, fwiw, fwow, iw, ow}_target_error.yaml**
+1. **pert_{left, right}_{fw, fwiw, fwow, iw, ow}_success_rate.yaml**
+1. **data** (Octave file containing all data)
+1. **plot_results.pdf** (plotted results with boxplots)
 
-4. free_step_length_{left, right}.yaml
-5. free_step_width_{left, right}.yaml
-6. free_step_time_{left, right}.yaml
-
-7. pert_{left, right}_{fw, fwiw, fwow, iw, ow}_step_length.yaml
-8. pert_{left, right}_{fw, fwiw, fwow, iw, ow}_step_width.yaml
-9. pert_{left, right}_{fw, fwiw, fwow, iw, ow}_step_time.yaml
-10. pert_{left, right}_{fw, fwiw, fwow, iw, ow}_target_error.yaml
-11. pert_{left, right}_{fw, fwiw, fwow, iw, ow}_success_rate.yaml
-
-12. data (Octave file containing all data)
-13. plot_results.pdf (plotted results with boxplots)
 
 Performance indicators collected in files 1-3 relate to nonperturbed baseline walking (before enabling perturbations).
 Performance indicators collected in files 4-6 relate to nonperturbed walking inbetween perturbations (free walking).
-Performance indicators collected in files 7-11 relate to perturbed walking, 4 steps from perturbation onset. See details in Readme.md
+Performance indicators collected in files 7-11 relate to perturbed walking, 4 steps from perturbation onset. More details are provided in [README](src/README.md)
 
 
 ## Installation
