@@ -18,7 +18,7 @@ Before starting the measurement, the operator inputs subject information and sel
 The software checks if perturbation parameters (stored in `subject_X_condition_Y.yaml`) are the same as in previous run (if previous run exists). If yes, the system increase run number (Z=Z+1), while the condition number (Y=Y) remains the same. If not, the system increase condition number (Y=Y+1) and starts with new run (Z=1).
 **Note** that only previous condition file is checked with the current protocol.
 
-Block diagram.
+[Here is flowchart diagram of the data collection and file naming.](https://gitlab.com/matjazzadravec/bestable-platform-codes/-/blob/master/misc/data_collection_diagram.png)
 
 The BeStable testbed outputs the following files:
 1. **subject_X_info.yaml**
